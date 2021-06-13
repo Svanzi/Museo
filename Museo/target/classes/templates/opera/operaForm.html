@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(operaForm, form.css)"></head>
+	
+	<body>
+	
+		<nav th:replace="fragments/base.html :: navTab"> </nav>
+	
+		<header th:replace="fragments/base.html :: titolo"> </header>
+	
+		<section>
+			<div id="container">
+				<form th:action="@{/addOpera}" method="POST" th:object="${opera}">
+				
+					<select hidden="true" th:field="*{artista}" required>
+						<th:block th:each="a :${artista}">
+							<option th:value="${a.id}"/>
+						</th:block>
+					</select>
+						
+					<table>
+						<tr>
+							<h1>Inserisci i dati dell'opera</h1>
+						</tr>
+						<tr>
+							<td>Titolo:</td>
+							<td><input type="text" th:name="titolo" th:field="${opera.titolo}"/></td>
+						</tr>
+						<tr>
+							<td>Anno:</td>
+							<td><input type="text" th:field="${opera.anno}"/></td>
+						</tr>	
+						<tr>
+							<td>Descrizione:</td>
+							<td><input type="text" th:field="${opera.descrizione}"/></td>
+						</tr>
+						<tr>
+							<td><button type="submit">Invio</button></td>
+						</tr>
+					</table>
+				</form>
+				<p><a th:href="@{/default}">Indietro</a></p>
+			</div>
+		</section>
+		
+	</body>
+</html>

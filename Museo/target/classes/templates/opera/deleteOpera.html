@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(deleteOpera, form.css)"></head>
+	
+	<body>
+	
+		<nav th:replace="fragments/base.html :: navTab"> </nav>
+	
+		<header th:replace="fragments/base.html :: titolo"> </header>
+	
+		<section>
+			<div id="container">
+				<form th:action="@{/deleteOpera}" method="POST" th:object="${opera}">		
+					<div>
+						<h1>seleziona l'opera da eliminare</h1>
+						<div class="collezione", th:each="opera : ${opere}">
+							<input type="checkbox" th:value="${opera.titolo}" th:field="${opera.titolo}" th:text="${opera.titolo}"></button>
+					    </div>
+							<span><button type="submit">Elimina</button></span>
+					</div>
+				</form>
+					<p><a th:href="@{/default}">Indietro</a></p>
+			</div>
+		</section>
+		
+	</body>
+</html>

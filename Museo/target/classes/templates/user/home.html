@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(home, home.css)"></head>
+	
+	<body>
+
+		<nav th:replace="fragments/base.html :: navTab"> </nav>
+	
+		<header th:replace="fragments/base.html :: titoloUtente"> </header>
+		
+		<nav th:replace="fragments/base.html :: logout"> </nav>
+
+		<section>
+			<div id="container">
+					<h1>User home</h1>
+				<div> 
+			    	adesso puoi vedere agli artisti e le opere del museo
+				</div>
+				<div> 
+			    	oppure puoi:
+				</div>
+				<div>
+					<a th:href="@{/cercaOperaUser}"><h4>cercare un'opera specifica</h4></a>
+				</div>
+				<div>
+					<a th:href="@{/cercaArtistaUser}"><h4>cercare un'artista specifico</h4></a>
+				</div>
+			</div>
+		</section>
+
+	</body>
+</html>

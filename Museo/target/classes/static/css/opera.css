@@ -1,0 +1,29 @@
+/*OPERA*/
+
+#opera-container {
+  margin: 3px;
+  font-family: roman;
+  text-align: center;
+  padding: 15em;
+  
+}
+
+.opera {
+  border: 1px groove black;
+  /*padding: 10px;
+  background-color: lightgrey;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;*/
+}
+
+.artista-img {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 1em;
+  grid-row-gap: 2em;
+}
+
+h1 {
+  color: red;
+}

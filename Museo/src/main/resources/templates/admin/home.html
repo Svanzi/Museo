@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(adminHome, home.css)"></head>
+	
+	<body>
+
+		<nav th:replace="fragments/base.html :: navTab"> </nav>
+	
+		<header th:replace="fragments/base.html :: titoloAdmin"> </header>
+		
+		<nav th:replace="fragments/base.html :: logout"> </nav>
+
+		<section>
+			<div id="container">
+				<h1> 
+			    	admin home
+				</h1>
+				<div> 
+			    	ecco le operazioni che puoi svolgere:
+				</div>
+				<div class="link">
+					<div>
+						<a th:href="@{/cercaArtista}">aggiungere un opera</a>
+					</div>
+					<div>
+						<a th:href="@{/addArtista}">aggiungere un artista</a>
+					</div>
+					<div>
+						<a th:href="@{/cercaCuratore}">aggiungere una collezione</a>
+					</div>
+				</div>
+				<div class="link">
+					<div>
+						<a th:href="@{/deleteOpera}">rimuovere un opera</a>
+					</div>
+					<div>
+						<a th:href="@{/deleteArtista}">rimuovere un artista</a>
+					</div>
+					<div>
+						<a th:href="@{/deleteCollezione}">rimuovere una collezione</a>
+					</div>
+				</div>
+				<div class="link">
+					<div>
+						<a href="listOpere"> lista delle opere </a>
+					</div>
+					<div>
+						<a href="listArtisti"> lista degli artisti </a>
+					</div>
+					<div>
+						<a href="listCollezioni"> lista delle collezioni</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</body>
+</html>

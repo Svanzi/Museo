@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(deleteArtistaSuccessful, form.css)"></head>
+	
+	<body>
+	
+		<nav th:replace="fragments/base.html :: navTab"> </nav>
+	
+		<header th:replace="fragments/base.html :: titolo"> </header>
+	
+		<section>
+			<div id="container">
+				<div>
+					eliminazione completata
+				</div>
+				<p><a th:href="@{/default}">Indietro</a></p>
+			</div>
+		</section>
+		
+	</body>
+</html>

@@ -1,0 +1,15 @@
+.dati {
+    border: 5px groove black;
+    padding: 1em;
+    background-color: lightgray;
+    text-align: center;
+}
+
+p{
+	font-size: 15px;
+}
+
+h2{
+	color: red;
+	font-family: roman;
+}

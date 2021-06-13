@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(curatoreForm, form.css)"></head>
+	
+	<body>
+	
+		<nav th:replace="fragments/base.html :: navTab"> </nav>
+	
+		<header th:replace="fragments/base.html :: titolo"> </header>
+	
+		<section>
+			<div id="container">
+				<form th:action="@{/addCuratore}" method="POST" th:object="${curatore}">		
+					<table>
+						<tr>
+							<td><h1>inserisci i dati del curatore</h1></td>
+						</tr>
+						<tr>
+							<td>Nome:</td>
+					    	<td><input type="text" th:field="${curatore.nome}"/></td>
+						</tr>
+						<tr>
+							<td>Cognome:</td>
+					    	<td><input type="text" th:field="${curatore.cognome}"/></td>
+						</tr>
+						<tr>
+							<td>Data di nascita:</td>
+					    	<td><input type="date" th:field="${curatore.dataNascita}"/></td>
+						</tr>
+						<tr>
+							<td>Luogo di nascita:</td>
+					    	<td><input type="text" th:field="${curatore.luogoNascita}"/></td>
+						</tr>
+						<tr>
+							<td>email:</td>
+					    	<td><input type="email" th:field="${curatore.email}"/></td>
+						</tr>
+						<tr>
+							<td>Numero di telefono:</td>
+					    	<td><input type="tel" th:field="${curatore.numeroTelefono}"/></td>
+						</tr>
+						<tr>
+							<td><button type="submit">aggiungi</button></td>
+						</tr>
+					</table>
+				</form>
+				<p><a th:href="@{/default}">Indietro</a></p>
+			</div>
+		</section>
+		
+	</body>
+</html>

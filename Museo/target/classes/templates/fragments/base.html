@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:fragment="headerfiles(title, css)">
+		<meta charset="UTF-8" />
+		<link th:href="@{/css/} + ${css}" rel="stylesheet">
+		<title th:text=${title}></title>
+		
+		<style>
+		body {
+		  margin: 0;
+		  background-color: peachpuff;
+		}
+		
+		@font-face{
+			font-family: roman;
+			src: url(/font/CinzelDecorative-Regular.otf);
+		}
+		
+		/*ANCORE*/
+		
+		a {
+			text-decoration: none;
+		}
+		
+		a:link {
+			color: black;
+		}
+		
+		a:visited {
+		    color: black;
+		}
+		
+		/*BARRA NAVIGAZIONE*/
+		
+		nav {
+		  display: flex;
+		  justify-content: space-around;
+		
+		  /*background-color: white;*/
+		  height: 35px;
+		}
+		
+		.nav-link {
+		  align-self: center;
+		  flex-grow: 1;
+		  text-align: center;
+		  font-family: roman;
+		  font-size: 20px;
+		}
+		
+		/*TITOLO*/
+		 
+		header {
+		    background-image: url(/images/TitoloBG.jpg);
+		    background-size: cover;
+		    background-repeat: no-repeat;
+		    background-position: center;
+		    height: 316px;
+		}
+		
+		.titolo-item {
+		  text-align: center;
+		  align-items: center;
+		  font-family: roman;
+		  font-size: 100px;
+		}
+		
+		/*SECTION*/
+		
+		section {
+		  background-image: url(/images/sectionBG.jpg);
+		  background-repeat: no-repeat;
+		  background-size: cover;
+		  background-position: center;
+		  padding: 5em;
+		}
+		
+		/*CONTAINER*/
+		
+		#container{
+		  display: table;
+    	  border: 5px groove black;
+    	  padding: 7em;
+    	  margin: auto;
+    	  background-color: peachpuff;
+    	  text-align: center;
+    	  font-family: roman;
+    	}
+		
+		/*FOOTER*/
+
+		footer {
+		  display: flex;
+		  justify-content: space-around;
+		
+		  /*background-color: white;*/
+		  height: 35px;
+		}
+		
+		.footer-link {
+		  align-self: center;
+		  flex-grow: 1;
+		  text-align: center;
+		  font-family: roman;
+		  font-size: 20px;
+		}
+
+	</style>
+
+	</head>
+	
+	
+	
+	<body>
+	
+		<nav th:fragment="navTab">
+			<div class="nav-link"> <a href="listArtisti"> artisti </a> </div>
+			<div class="nav-link"> <a href="listOpere"> opere </a> </div>
+			<div class="nav-link"> <a href="info"> info </a> </div>
+		</nav>
+		
+		<header th:fragment="titolo">
+			<div class="titolo-item"> <a th:href="@{/}"> museo </a> </div>
+		</header>
+		
+		<header th:fragment="titoloAdmin">
+			<div class="titolo-item"> <a th:href="@{/default}"> museo </a> </div>
+		</header>
+		
+		<header th:fragment="titoloUtente">
+			<div class="titolo-item"> <a th:href="@{/default}"> museo </a> </div>
+		</header>
+		
+		<footer th:fragment="footer">
+			<div class="footer-link"> <a href="login"> accedi </a> </div>
+			<div class="footer-link"> <a href="register">Registrati</a> </div>
+		</footer>
+	
+		<nav th:fragment="logout">
+			<div class="nav-link"> <a th:href="@{/logout}">Logout</a> </div>
+		</nav>
+		
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(cercaArtista, form.css)"></head>
+	
+	<body>
+	
+		<nav th:replace="fragments/base.html :: navTab"> </nav>
+	
+		<header th:replace="fragments/base.html :: titolo"> </header>
+	
+		<section>
+			<div id="container">
+				<form th:action="@{/cercaArtistaUser}" method="POST" th:object="${artista}">		
+					<table>
+						<tr>
+							<td><h1>quale artista stai cercando?</h1></td>
+						</tr>
+						<tr>
+							<td>Nome:</td>
+							<td><input type="text" th:name="nome" th:field="${artista.nome}"/></td>
+						</tr>
+						<tr>
+							<td>cognome:</td>
+							<td><input type="text" th:name="cognome" th:field="${artista.cognome}"/></td>
+						</tr>	
+						<tr>
+							<td><button type="submit">Invio</button></td>
+						</tr>
+					</table>
+				</form>
+				<p><a th:href="@{/default}">Indietro</a></p>
+			</div>
+		</section>
+		
+	</body>
+</html>

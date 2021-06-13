@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(opera, opera.css)">
+	</head>
+	
+	<body>
+		
+		<nav th:replace="fragments/base.html :: navTab"> </nav>
+	
+		<header th:replace="fragments/base.html :: titolo"> </header>
+		
+		<section>
+			<div id="container">
+				<table class="collezione" th:if="${opera}" th:object="${opera}">
+						<tr>
+				    		<h2 th:name="nome" th:text="${opera.titolo}"></h2>
+						</tr>
+						<tr>
+				    		<td>Data:</td>
+				    		<td th:text="${opera.anno}"></td>
+				    	</tr>		
+				    	<tr>	
+				    		<td>Descrizione:</td>							    	
+				    		<td th:text="${opera.descrizione}"></td>
+				    	</tr>
+				    	<tr>
+				    		<td>Artista:</td>
+				    		<td><a th:href="@{'/artista' + '/'+ ${opera.artista.id}}">
+				    			<th:name="nome" th:text="${opera.artista.nome}+${opera.artista.cognome}"/>
+				    		</td></a>
+				    	</tr>
+   				</table>
+				<div><a th:href="@{/default}">indietro</a></div>
+			</div>
+		</section>
+		
+	</body>
+</html>

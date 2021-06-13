@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(collezioneForm, form.css)"></head>
+	
+	<body>
+	
+		<nav th:replace="fragments/base.html :: navTab"> </nav>
+	
+		<header th:replace="fragments/base.html :: titolo"> </header>
+	
+		<section>
+			<div id="container">
+				<form th:action="@{/addCollezione}" method="POST" th:object="${collezione}">
+				
+					<select hidden="true" th:field="*{curatore}" required>
+						<th:block th:each="c :${curatore}">
+							<option th:value="${c.id}" th:text="${c.nome}"/>
+						</th:block>
+					</select>
+						
+					<table>
+						<tr>
+							<h1>Inserisci i dati della collezione</h1>
+						</tr>
+						<tr>
+							<td>Nome:</td>
+							<td><input type="text" th:name="nome" th:field="${collezione.nome}"/></td>
+						</tr>
+						<tr>
+							<td>Descrizione:</td>
+							<td><input type="text" th:field="${collezione.descrizione}"/></td>
+						</tr>
+						<tr>
+							<td><button type="submit">Invio</button></td>
+						</tr>
+					</table>
+				</form>
+				<p><a th:href="@{/default}">Indietro</a></p>
+			</div>
+		</section>
+		
+	</body>
+</html>

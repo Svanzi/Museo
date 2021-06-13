@@ -1,0 +1,17 @@
+/*INFO*/
+
+#info-container {
+  margin: 3px;
+  font-family: roman;
+  text-align: center;
+  padding: 15em;
+}
+
+.info {
+  border: 5px groove black;
+  padding: 10px;
+  background-color: lightgrey;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+}
