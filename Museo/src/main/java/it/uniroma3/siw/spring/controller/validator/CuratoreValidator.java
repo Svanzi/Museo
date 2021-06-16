@@ -15,22 +15,23 @@ public class CuratoreValidator implements Validator{
 	@Autowired
 	private CuratoreService curatoreService;
 	
-	public Boolean alreadyExist(Curatore curatore) {
-		Boolean res = false;
-		Curatore temp = this.curatoreService.findByNomeAndCognome(curatore.getNome(),curatore.getCognome());
-		if(temp != null)
-			res = true;
-		return res;
-	}
-
 	@Override
 	public boolean supports(Class<?> clazz) {
 		 return Collezione.class.equals(clazz);
 	}
 
 	@Override
-	public void validate(Object target, Errors errors) {
-		// TODO Auto-generated method stub
+	public void validate(Object o, Errors errors) {
+		Curatore curatore = (Curatore) o;
+		String nome = curatore.getName().trim();
+		String cognome = curatore.getCognome().trim();
+		String dataNascita = curatore.getDataNascita().trim();
+		String luogoNascita = curatore.getLuogoNascita().trim();
+		
+		if(nome.isEmpty())
+		
+		if(this.curatoreService.alreadyExist(curatore))
+			errors.reject("collezione", "duplicate");
 		
 	}
 

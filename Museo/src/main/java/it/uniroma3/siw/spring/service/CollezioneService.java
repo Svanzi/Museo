@@ -35,5 +35,13 @@ public class CollezioneService {
 		return collezioneRepository.findByNome(nome);
 	}
 	
+	@Transactional
+	public Boolean alreadyExist(Collezione collezione) {
+		Boolean res = false;
+		Collezione temp = this.collezioneRepository.findByNome(collezione.getNome());
+		if(temp != null)
+			res = true;
+		return res;
+	}
 
 }

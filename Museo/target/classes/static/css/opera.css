@@ -17,6 +17,11 @@
   justify-content: center;*/
 }
 
+
+img {
+	border: 16px groove #FFBF86;
+}
+
 .artista-img {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

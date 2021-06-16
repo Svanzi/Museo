@@ -22,12 +22,28 @@ public class CuratoreService {
 	}
 	
 	@Transactional
+	public void elimina(Long id) {
+		curatoreRepository.deleteById(id);
+	}
+	
+	@Transactional
 	public List<Curatore> allCuratori(){
 		return (List<Curatore>) curatoreRepository.findAll();
 	}
 	
 	@Transactional
-	public Curatore findByNomeAndCognome(String nome, String cognome) {
-		return curatoreRepository.findByNomeAndCognome(nome, cognome);
+	public Curatore findByNameAndCognome(String nome, String cognome) {
+		return curatoreRepository.findByNameAndCognome(nome, cognome);
 	}
+	
+	@Transactional
+	public Boolean alreadyExist(Curatore curatore) {
+		Boolean res = false;
+		Curatore temp = this.curatoreRepository.findByNameAndCognome(curatore.getName(),curatore.getCognome());
+		if(temp != null)
+			res = true;
+		return res;
+	}
+
+	
 }

@@ -16,21 +16,42 @@
 		
 		<section>
 			<div id="container">
-				<div class="grid">
 					<h1>Collezioni del museo</h1>
-					<div class="collezione", th:each="collezione : ${collezioni}">
-				    	<h2 th:text="${collezione.nome}">nome collezione</h2>
-				    	<h6 th:text="${collezione.descrizione}">descrizione collezione</h6>
-				    	<h4>Curatore</h4>
-				    	<h6 th:text="${collezione.curatore.name}"></h6>
-				    	<h6 th:text="${collezione.curatore.cognome}"></h6>
-				    	<h6 th:text="${collezione.curatore.dataNascita}"></h6>
-				    	<h6 th:text="${collezione.curatore.luogoNascita}"></h6>
-				    	<h6 th:text="${collezione.curatore.email}"></h6>
-				    	<h6 th:text="${collezione.curatore.numeroTelefono}"></h6>
-					</div>
-				</div>
-				<div><a th:href="@{/default}">indietro</a></div>		
+					<table class="collezione", th:each="collezione : ${collezioni}">
+					</tr>
+				    	<td><h4>Collezione</h4></td>
+				    <tr>
+					<tr>
+						<td>Nome collezione:</td>
+				    	<td th:text="${collezione.nome}">nome collezione</td>
+					</tr>
+					<tr>
+						<td>Descrizione collezione:</td>
+				    	<td th:text="${collezione.descrizione}">nome collezione</td>
+					</tr>
+				    	<td><h4>Curatore</h4></td>
+				    <tr>
+						<td>Nome Cognome:</td>
+				    	<td th:text="${collezione.curatore.name} + ' ' + ${collezione.curatore.cognome}">nome collezione</td>
+					</tr>
+					<tr>
+						<td>Data di nascita:</td>
+				    	<td th:text="${collezione.curatore.dataNascita}">nome collezione</td>
+					</tr>
+					<tr>
+						<td>Luogo di nascita:</td>
+				    	<td th:text="${collezione.curatore.luogoNascita}">nome collezione</td>
+					</tr>
+					<tr>
+						<td>Email:</td>
+				    	<td th:text="${collezione.curatore.email}">nome collezione</td>
+					</tr>
+					<tr>
+						<td>Numero telefono:</td>
+				    	<td th:text="${collezione.curatore.numeroTelefono}">nome collezione</td>
+					</tr>
+				</tabel>
+				<div><a th:href="@{/default}">indietro</a></div>	
 			</div>
 		</section>
 		

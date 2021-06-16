@@ -16,17 +16,28 @@
 		
 		<section>
 			<div id="container">
-				<div class="grid">
 					<h1>Curatori del museo</h1>
-					<div class="collezione", th:each="curatore : ${curatori}">
-				    	<h2 th:text="${curatore.nome}">nome collezione</h2>
-				    	<h6 th:text="${curatore.cognome}">descrizione collezione</h6>
-				    	<h6 th:text="${curatore.dataNascita}">descrizione collezione</h6>										    	
-				    	<h6 th:text="${curatore.luogoNascita}">descrizione collezione</h6>
-				    	<h6 th:text="${curatore.email}">descrizione collezione</h6>
-				    	<h6 th:text="${curatore.numeroTelefono}">descrizione collezione</h6>
-					</div>
-				</div>
+					<table class="collezione", th:each="curatore : ${curatori}">
+						<tr>
+				    		<h2 th:text="${curatore.nome} + ' ' + ${curatore.cognome}"></h2>
+						</tr>
+						<tr>
+							<td>Data di nascita:</td>
+				    		<td th:text="${curatore.dataNascita}"></td>
+						</tr>
+						<tr>
+							<td>Luogo di nascita:</td>
+				    		<td th:text="${curatore.luogoNascita}"></td>
+						</tr>
+						<tr>
+							<td>Email:</td>
+				    		<td th:text="${curatore.email}"></td>
+						</tr>
+						<tr>
+							<td>Numero di telefono:</td>
+				    		<td th:text="${curatore.numeroTelefono}"></td>
+						</tr>
+					</table>
 				<div><a th:href="@{/default}">indietro</a></div>		
 			</div>
 		</section>

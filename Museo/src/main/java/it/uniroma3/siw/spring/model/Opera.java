@@ -21,6 +21,9 @@ public class Opera {
 	
 	private String descrizione;
 	
+	@Column(nullable = true, length = 64)
+	private String photos;
+	
 	//ASSOCIAZIONI
 	
 	@OneToOne
@@ -28,5 +31,12 @@ public class Opera {
 	
 	@OneToOne
 	private Artista artista;
+	
+	@Transient
+    public String getPhotosImagePath() {
+        if (photos == null || id == null) return null;
+         
+        return "/opera-photos/" + id + "/" + photos;
+    }
 	
 }

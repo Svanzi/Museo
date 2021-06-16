@@ -14,23 +14,24 @@ public class CollezioneValidator implements Validator{
 	@Autowired
 	private CollezioneService collezioneService;
 	
-	public Boolean alreadyExist(Collezione collezione) {
-		Boolean res = false;
-		Collezione temp = this.collezioneService.findByNome(collezione.getNome());
-		if(temp != null)
-			res = true;
-		return res;
+	@Override
+	public void validate(Object o, Errors errors) {
+		Collezione collezione = (Collezione) o;
+		String nome = collezione.getNome().trim();
+		
+		if(nome.isEmpty())
+			errors.rejectValue("nome", "required");
+		if(nome.isEmpty())
+			errors.rejectValue("nome", "required");
+		
+		if(this.collezioneService.alreadyExist(collezione))
+			errors.reject("collezione", "duplicate");
+		
 	}
 
 	@Override
 	public boolean supports(Class<?> clazz) {
 		 return Collezione.class.equals(clazz);
-	}
-
-	@Override
-	public void validate(Object target, Errors errors) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

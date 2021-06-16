@@ -45,5 +45,15 @@ public class OperaService {
 		else 
 			return null;
 	}
+	
+	@Transactional
+	public Boolean alreadyExist(Opera opera) {
+		Boolean res = false;
+		Opera temp = this.operaRepository.findByTitolo(opera.getTitolo());
+		if(temp != null)
+			res = true;
+		return res;
+	}
+	
 
 }

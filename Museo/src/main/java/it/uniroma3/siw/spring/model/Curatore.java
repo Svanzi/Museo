@@ -16,7 +16,7 @@ public class Curatore {
 	private Long id;
 	
 	@Column(nullable = false)
-	private String nome;
+	private String name;
 	
 	@Column(nullable = false)
 	private String cognome;
@@ -33,7 +33,7 @@ public class Curatore {
 	
 	//ASSOCIAZIONI
 	
-	@ManyToOne
+	@OneToMany(mappedBy = "curatore")
 	private List<Collezione> collezioni;
 
 }

@@ -6,6 +6,8 @@ import it.uniroma3.siw.spring.model.Curatore;
 
 public interface CuratoreRepository extends CrudRepository<Curatore, String> {
 	
-	public Curatore findByNomeAndCognome(String nome, String cognome);
+	public Curatore findByNameAndCognome(String nome, String cognome);
+	
+	public void deleteById(Long id);
 
 }

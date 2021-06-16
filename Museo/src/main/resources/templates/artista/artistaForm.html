@@ -6,14 +6,11 @@
 	
 		<nav th:replace="fragments/base.html :: navTab"> </nav>
 	
-		<header th:replace="fragments/base.html :: titolo"> </header>
+		<header th:replace="fragments/base.html :: titoloAdmin"> </header>
 	
 		<section>
 			<div id="container">
-				<form th:action="@{/addArtista}" method="POST" th:object="${artista}">	
-				<div th:if="${#fields.hasGlobalErrors()}">
-  					<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
-				</div>		
+				<form th:action="@{/addArtista}" method="POST" >	
 					<table>
 						<tr>
 							<td><h1>inserisci i dati dell'artista</h1></td>
@@ -21,16 +18,20 @@
 						<tr>
 							<td>Nome:</td>
 					    	<td><input type="text" th:field="${artista.nome}"/></td>
-					    	<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+					    	<td th:if="${#fields.hasErrors('artista.nome')}"
+              				    th:errors="${artista.nome}" th:style="'color:red; font-size:12px'"></td>
 						</tr>
 						<tr>
 							<td>Cognome:</td>
 					    	<td><input type="text" th:field="${artista.cognome}"/></td>
-					    	<td th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></td>
+							<td th:if="${#fields.hasErrors('artista.cognome')}"
+              				  th:errors="${artista.cognome}" th:style="'color:red; font-size:12px'"></td>
 						</tr>
 						<tr>
 							<td>Data di nascita:</td>
 					    	<td><input type="date" th:field="${artista.dataNascita}"/></td>
+							<td th:if="${#fields.hasErrors('artista.dataNascita')}"
+              				  th:errors="${artista.dataNascita}" th:style="'color:red; font-size:12px'"></td>
 						</tr>
 						<tr>
 							<td>Data di morte:</td>

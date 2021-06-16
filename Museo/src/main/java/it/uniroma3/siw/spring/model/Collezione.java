@@ -21,7 +21,7 @@ public class Collezione {
 
 	//ASSOCIAZIONI
 	
-	@OneToOne(mappedBy = "collezione")
+	@OneToOne(cascade = CascadeType.ALL)
 	private Curatore curatore;
 	
 	@OneToMany(mappedBy = "collezione")

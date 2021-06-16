@@ -5,11 +5,6 @@ h1 {
 	font-weight: bold;
 }
 
-.collezione{
-	border: 1px groove black;
-	background-color: burlywood;
-}
-
 #grid{
 	display: grid;
 }

@@ -41,21 +41,20 @@ public class ArtistaController {
 			model.addAttribute("artista", new Artista());
 			return "/artista/listArtisti.html";
 		}
-//			model.addAttribute("opera", new Opera());
-			return "/artista/artistaForm.html";
+		return "/artista/artistaForm.html";
 	}
 	
 	@RequestMapping(value = "/deleteArtista", method = RequestMethod.GET)
-	public String chooseArtista (Model model) {
+	public String deleteArtistaGet (Model model) {
 		model.addAttribute("artisti", this.artistaService.allArtisti());
 		model.addAttribute("artista", new Artista());
 		return "/artista/deleteArtista.html";
 	}
 	
 	@RequestMapping(value = "/deleteArtista", method = RequestMethod.POST)
-	public String deleteOpera (@ModelAttribute("artista") Artista artista) {
-		this.artistaService.elimina(artista.getId());
-		return "/artista/deleteArtistaSuccessful.html";
+	public String deleteArtistaPost (@ModelAttribute("artista") Artista artista) {
+			this.artistaService.elimina(artista.getId());
+			return "/artista/deleteArtistaSuccessful.html";
 	}
 	
 	@RequestMapping(value = "/cercaArtistaUser", method = RequestMethod.GET)

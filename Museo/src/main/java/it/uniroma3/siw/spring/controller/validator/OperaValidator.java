@@ -15,23 +15,25 @@ public class OperaValidator implements Validator{
 	@Autowired
 	private OperaService operaService;
 	
-	public Boolean alreadyExist(Opera opera) {
-		Boolean res = false;
-		Opera temp = this.operaService.findByTitolo(opera.getTitolo());
-		if(temp != null)
-			res = true;
-		return res;
+	@Override
+	public void validate(Object o, Errors errors) {
+		Opera opera= (Opera) o;
+		String titolo = opera.getTitolo().trim();
+		String data = opera.getAnno().trim();
+		
+		if(titolo.isEmpty())
+			errors.rejectValue("titolo", "required");
+		if(data.isEmpty())
+			errors.rejectValue("data", "required");
+		
+		if(this.operaService.alreadyExist(opera))	
+			errors.reject("opera", "duplicate");
+		
 	}
 
 	@Override
 	public boolean supports(Class<?> clazz) {
 		 return Collezione.class.equals(clazz);
-	}
-
-	@Override
-	public void validate(Object target, Errors errors) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

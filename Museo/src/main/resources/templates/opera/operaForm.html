@@ -6,11 +6,11 @@
 	
 		<nav th:replace="fragments/base.html :: navTab"> </nav>
 	
-		<header th:replace="fragments/base.html :: titolo"> </header>
+		<header th:replace="fragments/base.html :: titoloAdmin"> </header>
 	
 		<section>
 			<div id="container">
-				<form th:action="@{/addOpera}" method="POST" th:object="${opera}">
+				<form th:action="@{/addOpera}" method="POST" th:object="${opera}" enctype="multipart/form-data">
 				
 					<select hidden="true" th:field="*{artista}" required>
 						<th:block th:each="a :${artista}">
@@ -25,17 +25,25 @@
 						<tr>
 							<td>Titolo:</td>
 							<td><input type="text" th:name="titolo" th:field="${opera.titolo}"/></td>
+							<!--<td th:if="${#fields.hasErrors('opera.titolo')}"
+              				  th:errors="${opera.titolo}" th:style="'color:red'"></td>-->
 						</tr>
 						<tr>
 							<td>Anno:</td>
 							<td><input type="text" th:field="${opera.anno}"/></td>
+							<!--<td th:if="${#fields.hasErrors('opera.anno')}"
+              				  th:errors="${opera.anno}" th:style="'color:red'"></td>-->
 						</tr>	
 						<tr>
 							<td>Descrizione:</td>
 							<td><input type="text" th:field="${opera.descrizione}"/></td>
 						</tr>
 						<tr>
-							<td><button type="submit">Invio</button></td>
+							<td>Foto:</td>
+							<td><input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpg, image/jpeg"/></td>
+						</tr>
+						<tr>
+							<td><button type="submit">Inserisci</button></td>
 						</tr>
 					</table>
 				</form>
